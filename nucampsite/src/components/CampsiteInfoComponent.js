@@ -22,15 +22,15 @@ class CampsiteInfo extends Component {
       return (
         <div className="col-md-5 m-1">
           <h4>Comments</h4>
-          {comments.map((comments) => (
-            <div className="m-2" key={comments.id}>
-              {comments.text} <br />
-              -- {`${comments.author}, `}
+          {comments.map((comment) => (
+            <div className="m-2" key={comment.id}>
+              {comment.text} <br />
+              -- {`${comment.author}, `}
               {new Intl.DateTimeFormat("en-US", {
                 year: "numeric",
                 month: "short",
                 day: "2-digit",
-              }).format(new Date(Date.parse(comments.date)))}
+              }).format(new Date(Date.parse(comment.date)))}
             </div>
           ))}
         </div>
