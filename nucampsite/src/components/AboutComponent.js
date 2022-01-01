@@ -93,7 +93,7 @@ function RenderPartner({partner}) {
         return (
             <React.Fragment>
                 <Media object src={partner.image} alt={partner.name} width="150" />
-                <Media className="ml-5 mb-4" body>
+                <Media body className="ml-5 mb-4">
                     <Media heading>
                         {partner.name}
                     </Media>
@@ -101,9 +101,8 @@ function RenderPartner({partner}) {
                 </Media>
             </React.Fragment>
         );
-    } else {
-        return <div />;
     }
+    return <div />;
 }
 
 export default About;
