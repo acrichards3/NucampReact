@@ -63,19 +63,19 @@ class CommentForm extends Component {
   }
 
   handleSubmit(values) {
+    this.toggleModal();
     console.log("Current state is: " + JSON.stringify(values));
     alert("Current state is: " + JSON.stringify(values));
   }
 
   render() {
     return (
-      <React.Fragment>
+      <div>
         <Button
           outline
-          className="fa fa-pencil fa-lg"
           onClick={this.toggleModal}
         >
-          Submit Comment
+          <i className="fa fa-pencil fa-lg">Submit Comment</i>
         </Button>
 
         <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
@@ -83,7 +83,7 @@ class CommentForm extends Component {
           <ModalBody>
             <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
               <div className="form-group">
-                <Label>Rating</Label>
+                <Label htmlFor="rating">Rating</Label>
                 <Control.select
                   model=".rating"
                   id="rating"
@@ -98,7 +98,7 @@ class CommentForm extends Component {
                 </Control.select>
               </div>
               <div className="form-group">
-                <Label>Your Name</Label>
+                <Label htmlFor="author">Your Name</Label>
                 <Control.text
                   model=".author"
                   id="author"
@@ -123,7 +123,7 @@ class CommentForm extends Component {
                 />
               </div>
               <div className="form-group">
-                <Label>Comment</Label>
+                <Label htmlFor="text">Comment</Label>
                 <Control.textarea
                   model=".text"
                   id="text"
@@ -138,7 +138,7 @@ class CommentForm extends Component {
             </LocalForm>
           </ModalBody>
         </Modal>
-      </React.Fragment>
+      </div>
     );
   }
 }
